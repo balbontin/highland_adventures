@@ -1,0 +1,70 @@
+// Place all the styles related to the Destinations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.tourname {
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.tourlengthprice {
+  font-weight: bold;
+}
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+//
+.child {
+  flex-basis: auto;
+  flex: 0 1 32%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 60em) {
+  .child {
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 40em) {
+  .child {
+    min-width: 100%;
+  }
+}
+
+// @media screen and (min-width: 60em) {
+//     .card {
+//         flex: 0 1 calc(50% - 1em);
+//     }
+// }
+
+
+// @media screen and (min-width: 52em) {
+//     .card {
+//         flex: 0 1 calc(25% - 1em);
+//     }
+// }
+
+
+// @media screen and (min-width: 30em) {
+//     .parent {
+//         display: flex;
+//         flex-wrap: wrap;
+//         justify-content: space-between;
+//     }
+//
+//     .child {
+//         flex: 0 1 calc(50% - 1em);
+//     }
+// }
+
+// .child {
+//   width: 33%;  /* Or whatever */
+//   height: 100px; /* Or whatever */
+//   margin: auto;  /* Magic! */
+//   // flex-basis: 33.33%;
+// //   flex: 1;
+// //   padding: 10px;
+// }

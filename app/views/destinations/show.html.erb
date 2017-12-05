@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <!-- <strong>Destination:</strong> -->
+  <%= @destination.name.upcase %>
+</h1>
+
+<!-- <p> -->
+  <!-- <strong>Description:</strong> -->
+  <!-- <%= @destination.description %> -->
+<!-- </p> -->
+
+<!-- <strong>Tours:</strong> -->
+<div class="parent">
+<% @destination.tours.each do |tour| %>
+<section class="child">
+  <p class="tourname"><%= link_to tour.name, tour %></p>
+  <p class="tourlengthprice"><%= tour.length %> -
+    <%= tour.price %><p>
+  <p class="tourdescription"><%= tour.description %><p>
+</section>
+<% end %>
+</div>
+
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>

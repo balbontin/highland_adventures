@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <!-- <strong>Destination:</strong> -->
+  <%= @tour.destination.name %>
+</h1>
+<p>
+  <strong>Tour:</strong>
+  <%= @tour.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @tour.price %>
+</p>
+<p>
+  <strong>Length:</strong>
+  <%= @tour.length %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @tour.description %>
+</p>
+
+<p>
+  <strong>Itinerary:</strong>
+  <%= @tour.itinerary %>
+</p>
+
+
+
+
+
+<%= link_to 'Edit', edit_tour_path(@tour) %> |
+<%= link_to 'Back', tours_path %><br>
+<%= link_to 'Back to Destinations', destinations_path %>
