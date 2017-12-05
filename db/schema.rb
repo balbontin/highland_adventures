@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128012235) do
+ActiveRecord::Schema.define(version: 20171127224033) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "code"
@@ -19,17 +22,8 @@ ActiveRecord::Schema.define(version: 20171128012235) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "tour_id"
+    t.bigint "tour_id"
     t.index ["tour_id"], name: "index_activities_on_tour_id"
-  end
-
-  create_table "assignments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["role_id"], name: "index_assignments_on_role_id"
-    t.index ["user_id"], name: "index_assignments_on_user_id"
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -39,22 +33,18 @@ ActiveRecord::Schema.define(version: 20171128012235) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tours", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "price"
     t.string "length"
-    t.integer "destination_id"
+    t.bigint "destination_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "itinerary"
     t.index ["destination_id"], name: "index_tours_on_destination_id"
   end
 
+  add_foreign_key "activities", "tours"
+  add_foreign_key "tours", "destinations"
 end
